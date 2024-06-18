@@ -1,0 +1,14 @@
+import signal
+
+def handler(signum, frame):
+    print("\nCtrl+C pressed. Ignoring...")
+
+# Set the handler for SIGINT signal
+signal.signal(signal.SIGINT, handler)
+
+while True:
+    command = input("ShellHandler> ").strip()
+    if command.lower() == "exit":
+        print("Exiting shell...")
+        break
+    print(command)
